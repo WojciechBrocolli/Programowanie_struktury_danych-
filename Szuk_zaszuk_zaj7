@@ -1,0 +1,85 @@
+#ifndef
+#define
+struct Proces
+{
+
+private:
+    unsigned int Pid;
+    unsigned int watki;
+public:
+    Proces( unsigned int P=0,unsigned int L=1);
+    unsigned int dajPid();
+    unsigned int dajWatki();
+    void zmienWatki();
+    void wypiszProces();
+};
+unsigned int Proces ::dajPid()
+{
+        return Pid;
+}
+unsigned int Proces ::dajWatki()
+{
+    return watki;
+}
+void Proces ::zmienWatki(unsigned int L)
+{
+    watki=L;
+}
+void Proces::wypiszProces()
+{
+    cout<<"PID : "<<Pid<<endl<<"Liczba procesow "<<watki<<endl;
+}
+
+struct Kolej
+{
+    struct Node
+    {
+        Proces dane;
+        Node*nast;
+        Node(Proces P,Node*N=nullptr);
+    };
+    Node*pocz=nullptr;
+    int ileJest=0;
+    Kolej()=default;
+    ~Kolej();
+    void wypisz();
+    void dodajDoKolej();
+
+};
+void Kolej ::wypisz()
+{
+Node*szuk=pocz;
+while(szuk!=nullptr)
+{
+    szuk->dane.wypiszProces
+}
+}
+void Kolej ::dodajDoKolej()
+{
+    if(pocz==nullptr)
+        {
+            ileJest++;
+            pocz = new Node(p);
+        }
+    else
+    {
+        Node*szuk=pocz;
+        while(szuk->nast!=nullptr && szuk->dane.dajPid()!=P.dajPid())
+        {szuk=szuk->nast;}
+        if(szuk->dane.dajPid())
+        {
+            int L=szuk->dane.dajWatki()+P.dajWatki;
+            szuk->dane.zmienWatki(L);
+        }
+        else
+        {
+            Node*nowy=new Node(P);
+            szuk->nast=nowy;
+        }
+        ileJest++;
+
+    }
+
+}
+
+#endif
